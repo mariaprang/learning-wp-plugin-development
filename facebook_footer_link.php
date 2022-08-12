@@ -35,9 +35,22 @@ class WP_Facebook_Footer_Link
     public function init()
     {
         // References our plugin folder by locating the facebook-link-folder and then concatenating with the includes folder
-        require_once plugin_dir_path(__FILE__) . 'includes/facebook_footer_link_scripts.php';
+        require_once plugin_dir_path(__FILE__) . '/includes/facebook_footer_link_scripts.php';
 
     }
+
+    /**
+     * Constructor.
+     *
+     * @since 1.0.0
+     */
+    public function __construct()
+    {
+
+        $this->init();
+
+    }
+
 
     public static function instance()
     {
