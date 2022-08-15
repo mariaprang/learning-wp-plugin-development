@@ -32,11 +32,17 @@ class WP_Facebook_Footer_Link
      */
     public $file = __FILE__;
 
+    public $ffl_options;
+
     public function init()
     {
+        $this->ffl_options = get_option("ffl_settings");
         // References our plugin folder by locating the facebook-link-folder and then concatenating with the includes folder
         require_once plugin_dir_path(__FILE__) . '/includes/facebook_footer_link_scripts.php';
-
+        require_once plugin_dir_path(__FILE__) . '/includes/facebook-footer-link-content.php';
+        if (is_admin()) {
+            require_once plugin_dir_path(__FILE__) . '/includes/facebook_footer_link_settings.php';
+        }
     }
 
     /**
